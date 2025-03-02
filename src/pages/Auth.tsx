@@ -19,8 +19,13 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#1A1F2C] text-white flex flex-col">
-      <div className="container mx-auto flex items-start pt-6 px-4">
+    <div className="min-h-screen bg-[#1A1F2C] text-white flex flex-col relative overflow-hidden">
+      {/* Animated blur background */}
+      <div className="floating-blur floating-blur-1"></div>
+      <div className="floating-blur floating-blur-2"></div>
+      <div className="floating-blur floating-blur-3"></div>
+      
+      <div className="container mx-auto flex items-start pt-6 px-4 relative z-10">
         <Button 
           variant="ghost" 
           size="sm" 
@@ -32,7 +37,7 @@ const Auth = () => {
         </Button>
       </div>
       
-      <div className="flex-1 flex items-center justify-center p-4">
+      <div className="flex-1 flex items-center justify-center p-4 relative z-10">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold mb-2">
@@ -45,7 +50,7 @@ const Auth = () => {
             </p>
           </div>
           
-          <div className="bg-[#242935] rounded-2xl shadow-xl overflow-hidden border border-white/10">
+          <div className="bg-[#242935]/80 rounded-2xl shadow-xl overflow-hidden border border-white/10 backdrop-blur-md">
             <Tabs value={view} onValueChange={handleViewChange} className="w-full">
               <div className="px-6 py-4">
                 <TabsList className="grid w-full grid-cols-2 bg-[#1e2330]">

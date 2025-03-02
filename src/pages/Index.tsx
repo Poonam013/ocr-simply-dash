@@ -53,11 +53,53 @@ const Index = () => {
         {/* Hero Section */}
         <Hero />
         
+        {/* Upload Area Section */}
+        <section 
+          id="try-it-out" 
+          className="py-24 px-6 bg-gradient-to-b from-background to-[#111827]/50"
+          ref={(el) => addToRefs(el, 0)}
+        >
+          <div className="container mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-4">
+                Try It Yourself
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Upload your documents</h2>
+              <p className="text-lg text-gray-400">
+                Drag and drop your files containing English or Gujarati text, or browse your device to select them.
+              </p>
+            </div>
+            
+            <UploadArea />
+          </div>
+        </section>
+        
+        {/* Preview Section */}
+        <section 
+          id="preview" 
+          className="py-24 px-6 bg-background"
+          ref={(el) => addToRefs(el, 1)}
+        >
+          <div className="container mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-4">
+                Preview & Results
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">See the OCR in action</h2>
+              <p className="text-lg text-gray-400">
+                View, edit, and download your extracted text after processing.
+              </p>
+            </div>
+            
+            <PreviewWindow />
+          </div>
+        </section>
+        
         {/* Features Section */}
         <section 
           id="features" 
-          className="py-24 px-6"
-          ref={(el) => addToRefs(el, 0)}
+          className="py-24 px-6 bg-gradient-to-b from-[#111827]/50 to-background"
+          ref={(el) => addToRefs(el, 2)}
         >
           <div className="container mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-16">
@@ -65,7 +107,7 @@ const Index = () => {
                 Powerful Features
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Transform images into editable text</h2>
-              <p className="text-lg text-gray-600">
+              <p className="text-lg text-gray-400">
                 Our OCR technology makes it easy to extract and edit text from any image, 
                 with special optimization for both English and Gujarati languages.
               </p>
@@ -98,79 +140,14 @@ const Index = () => {
                   description: "Securely store your documents and OCR results in the cloud for easy access."
                 }
               ].map((feature, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-sm border hover:shadow-md transition-shadow">
+                <div key={index} className="bg-secondary/30 rounded-xl p-6 shadow-sm border border-white/5 hover:bg-secondary/50 transition-colors">
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                     <span className="text-primary font-semibold">{index + 1}</span>
                   </div>
                   <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.description}</p>
+                  <p className="text-gray-400">{feature.description}</p>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-        
-        {/* Upload Area Section */}
-        <section 
-          id="try-it-out" 
-          className="py-24 px-6 bg-gradient-to-b from-gray-50 to-white"
-          ref={(el) => addToRefs(el, 1)}
-        >
-          <div className="container mx-auto">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-4">
-                Try It Yourself
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Upload your documents</h2>
-              <p className="text-lg text-gray-600">
-                Drag and drop your files containing English or Gujarati text, or browse your device to select them.
-              </p>
-            </div>
-            
-            <UploadArea />
-          </div>
-        </section>
-        
-        {/* Preview Section */}
-        <section 
-          id="preview" 
-          className="py-24 px-6"
-          ref={(el) => addToRefs(el, 2)}
-        >
-          <div className="container mx-auto">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-4">
-                Preview & Results
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">See the OCR in action</h2>
-              <p className="text-lg text-gray-600">
-                View, edit, and download your extracted text after processing.
-              </p>
-            </div>
-            
-            <PreviewWindow />
-          </div>
-        </section>
-        
-        {/* Call to Action */}
-        <section 
-          className="py-24 px-6 bg-primary/5"
-          ref={(el) => addToRefs(el, 3)}
-        >
-          <div className="container mx-auto text-center">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to get started?</h2>
-              <p className="text-lg text-gray-600 mb-8">
-                Create an account today and transform the way you work with documents.
-              </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <button className="bg-primary text-white px-8 py-3 rounded-lg font-medium shadow-lg hover:shadow-xl transition-shadow">
-                  Create free account
-                </button>
-                <button className="bg-white text-primary border border-primary px-8 py-3 rounded-lg font-medium shadow-sm hover:bg-gray-50 transition-colors">
-                  Contact sales
-                </button>
-              </div>
             </div>
           </div>
         </section>

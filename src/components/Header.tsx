@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X, File } from "lucide-react";
 import AuthModal from './AuthModal';
 
 const Header = () => {
@@ -35,11 +35,8 @@ const Header = () => {
             <a href="#features" className="text-sm font-medium hover:text-primary transition-colors">
               Features
             </a>
-            <a href="#how-it-works" className="text-sm font-medium hover:text-primary transition-colors">
-              How It Works
-            </a>
-            <a href="#pricing" className="text-sm font-medium hover:text-primary transition-colors">
-              Pricing
+            <a href="#documents" className="text-sm font-medium hover:text-primary transition-colors">
+              Documents
             </a>
             <div className="relative group">
               <button className="flex items-center text-sm font-medium hover:text-primary transition-colors">
@@ -78,11 +75,8 @@ const Header = () => {
               <a href="#features" className="text-sm font-medium py-2 hover:text-primary transition-colors">
                 Features
               </a>
-              <a href="#how-it-works" className="text-sm font-medium py-2 hover:text-primary transition-colors">
-                How It Works
-              </a>
-              <a href="#pricing" className="text-sm font-medium py-2 hover:text-primary transition-colors">
-                Pricing
+              <a href="#documents" className="text-sm font-medium py-2 hover:text-primary transition-colors">
+                Documents
               </a>
               <details className="group">
                 <summary className="flex justify-between items-center text-sm font-medium py-2 cursor-pointer hover:text-primary transition-colors">
