@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Menu, X } from "lucide-react";
 import AuthModal from './AuthModal';
@@ -52,11 +53,11 @@ const Header = () => {
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" onClick={openLogin}>
-              Log in
+            <Button variant="ghost" asChild>
+              <Link to="/auth">Log in</Link>
             </Button>
-            <Button onClick={openRegister}>
-              Get Started
+            <Button asChild>
+              <Link to="/auth">Get Started</Link>
             </Button>
           </div>
 
@@ -93,11 +94,11 @@ const Header = () => {
                 </div>
               </details>
               <div className="flex flex-col space-y-3 pt-4">
-                <Button variant="ghost" onClick={openLogin}>
-                  Log in
+                <Button variant="ghost" asChild>
+                  <Link to="/auth">Log in</Link>
                 </Button>
-                <Button onClick={openRegister}>
-                  Get Started
+                <Button asChild>
+                  <Link to="/auth">Get Started</Link>
                 </Button>
               </div>
             </div>

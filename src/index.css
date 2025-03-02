@@ -105,6 +105,10 @@
   @apply bg-white/60 backdrop-blur-md border border-white/30 shadow-lg;
 }
 
+.dark-glass {
+  @apply bg-black/60 backdrop-blur-md border border-white/10 shadow-lg;
+}
+
 .minimal-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: hsl(var(--muted)) transparent;
