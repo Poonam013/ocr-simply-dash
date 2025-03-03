@@ -122,20 +122,20 @@ const UploadArea = () => {
           </div>
           <h3 className="text-lg font-medium mb-2">Drag & drop files here</h3>
           <p className="text-sm text-gray-400 mb-6 max-w-md">
-            Support for images (PNG, JPG) with blur that needs enhancement
+            Support for images (PNG, JPG), PDFs, and scanned documents with text to extract
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Button onClick={triggerFileInput}>
               <Plus className="mr-2 h-4 w-4" /> Select Files
             </Button>
             <Button variant="outline" onClick={triggerFileInput}>
-              <Sparkles className="mr-2 h-4 w-4" /> AI Enhance
+              <Sparkles className="mr-2 h-4 w-4" /> Extract Text
             </Button>
             <input
               ref={fileInputRef}
               type="file"
               multiple
-              accept=".png,.jpg,.jpeg"
+              accept=".png,.jpg,.jpeg,.pdf"
               className="hidden"
               onChange={handleFileInputChange}
             />
@@ -145,7 +145,7 @@ const UploadArea = () => {
 
       {files.length > 0 && (
         <div className="mt-8 glass-morphism rounded-xl p-4 animate-scale-in">
-          <h3 className="text-lg font-medium mb-4">Uploaded Images</h3>
+          <h3 className="text-lg font-medium mb-4">Uploaded Documents</h3>
           <div className="space-y-3 max-h-72 overflow-y-auto minimal-scrollbar pr-2">
             {files.map((fileObj) => (
               <div key={fileObj.id} className="flex items-center p-3 bg-black/30 rounded-lg shadow-sm border border-white/5">

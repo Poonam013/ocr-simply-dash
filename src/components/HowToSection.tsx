@@ -17,17 +17,17 @@ const HowToSection: React.FC<HowToSectionProps> = ({ addToRefs }) => {
           <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-4">
             Simple Process
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">How to unblur an image</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">How to extract text from images</h2>
           <p className="text-lg text-gray-400">
-            Our AI-powered tool makes it easy to restore clarity to your blurry photos in just a few simple steps.
+            Our AI-powered OCR tool makes it easy to extract text from images and documents in just a few simple steps.
           </p>
         </div>
         
         <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div className="rounded-xl overflow-hidden border-2 border-primary/20 p-2">
+          <div className="rounded-xl overflow-hidden border-2 border-primary/20 p-2 transition-transform duration-300 hover:scale-105">
             <img 
-              src="/lovable-uploads/24f0488e-4382-413c-9bff-b91a62213a9b.png" 
-              alt="Unblur example" 
+              src="/lovable-uploads/82b29139-f988-4210-abd5-bedf1ede28d8.png" 
+              alt="Text extraction steps" 
               className="w-full h-auto rounded-lg"
             />
           </div>
@@ -36,26 +36,26 @@ const HowToSection: React.FC<HowToSectionProps> = ({ addToRefs }) => {
             {[
               {
                 number: 1,
-                title: "Upload your photo",
-                description: "Select an image from your library to deblur."
+                title: "Upload your document",
+                description: "Select an image or document containing text you want to extract."
               },
               {
                 number: 2,
-                title: "Select AI Enhance",
-                description: "Our AI will automatically detect and reduce blur in your photo."
+                title: "Select AI Processing",
+                description: "Our AI will automatically detect and extract text from your document."
               },
               {
                 number: 3,
                 title: "Preview the result",
-                description: "Compare the original and enhanced versions side by side."
+                description: "Review the extracted text and make any necessary edits."
               },
               {
                 number: 4,
                 title: "Download",
-                description: "Save your crystal-clear image to your device."
+                description: "Save the extracted text as a document or copy to clipboard."
               }
             ].map((step) => (
-              <div key={step.number} className="flex gap-6">
+              <div key={step.number} className="flex gap-6 transition-transform duration-300 hover:scale-105 hover:bg-primary/5 p-4 rounded-lg">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-xl font-bold text-primary">
                   {step.number}
                 </div>

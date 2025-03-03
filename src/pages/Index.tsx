@@ -64,18 +64,18 @@ const Index = () => {
         
         {/* Upload Area Section */}
         <section 
-          id="try-it-out" 
+          id="upload" 
           className="py-24 px-6 bg-gradient-to-b from-background to-background/80"
           ref={(el) => addToRefs(el, 0)}
         >
           <div className="container mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-4">
-                Upload your blurry images
+                Upload your documents
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Unblur your photos instantly</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Extract text from any document</h2>
               <p className="text-lg text-gray-400">
-                Upload your blurry images and let our AI enhance them to crystal clear quality in seconds.
+                Upload your images or documents and let our OCR technology extract the text in seconds.
               </p>
             </div>
             
@@ -83,29 +83,29 @@ const Index = () => {
           </div>
         </section>
         
-        {/* How To Section */}
-        <HowToSection addToRefs={addToRefs} />
-        
         {/* Preview Section */}
         <section 
-          id="preview" 
-          className="py-24 px-6 bg-background"
+          id="ocr-in-action" 
+          className="py-24 px-6 bg-black/40"
           ref={(el) => addToRefs(el, 1)}
         >
           <div className="container mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-4">
-                Preview & Results
+                See it in Action
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">See the unblurring in action</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">See the OCR in action</h2>
               <p className="text-lg text-gray-400">
-                View, edit, and download your enhanced images after processing.
+                Our OCR technology accurately extracts text from images while preserving the original formatting.
               </p>
             </div>
             
             <PreviewWindow />
           </div>
         </section>
+
+        {/* How To Section */}
+        <HowToSection addToRefs={addToRefs} />
         
         {/* Features Section */}
         <FeaturesSection addToRefs={addToRefs} />

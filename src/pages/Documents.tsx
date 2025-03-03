@@ -3,27 +3,25 @@ import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
+import { FileText, Download, Trash, Plus, Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import { FileImage, Trash2, Download, FileText } from 'lucide-react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Documents = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
   
-  // Mock data for recently processed images
-  const images = [
-    { id: 1, name: 'Image_001.jpg', date: '2023-05-15', type: 'image' },
-    { id: 2, name: 'Document_scan.pdf', date: '2023-05-14', type: 'pdf' },
-    { id: 3, name: 'Blurry_photo.jpg', date: '2023-05-13', type: 'image' },
-    { id: 4, name: 'Notes.pdf', date: '2023-05-12', type: 'pdf' },
-    { id: 5, name: 'Family_picture.jpg', date: '2023-05-11', type: 'image' },
-    { id: 6, name: 'Contract.pdf', date: '2023-05-10', type: 'pdf' },
+  // Mock documents data
+  const documents = [
+    { id: 1, name: 'Invoice-2023.pdf', date: '2023-10-15', type: 'PDF' },
+    { id: 2, name: 'Scanned_Document.jpg', date: '2023-09-22', type: 'Image' },
+    { id: 3, name: 'Contract_Agreement.png', date: '2023-08-10', type: 'Image' },
+    { id: 4, name: 'Meeting_Notes.pdf', date: '2023-07-05', type: 'PDF' },
+    { id: 5, name: 'Receipt_123.jpg', date: '2023-06-20', type: 'Image' },
   ];
   
-  const filteredItems = images.filter(img => 
-    img.name.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredDocuments = documents.filter(doc => 
+    doc.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
-  
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       {/* Background blur effects */}
@@ -35,76 +33,78 @@ const Documents = () => {
       
       <Header />
       
-      <main className="flex-grow container mx-auto py-10 px-4">
-        <div className="max-w-5xl mx-auto bg-black/20 backdrop-blur-sm rounded-xl border border-white/5 overflow-hidden shadow-xl">
-          <div className="p-6 border-b border-white/10">
-            <h1 className="text-2xl font-bold">Your Documents</h1>
-            <p className="text-gray-400 mt-1">Access your processed images and documents</p>
+      <main className="flex-grow pt-24 px-6 py-12">
+        <div className="container mx-auto max-w-5xl">
+          <div className="mb-8">
+            <h1 className="text-3xl font-bold mb-2">Your Documents</h1>
+            <p className="text-gray-400">Access and manage your saved documents and extracted text</p>
           </div>
           
-          <div className="p-6">
-            <div className="flex justify-between mb-6 flex-col sm:flex-row gap-4">
-              <div className="relative max-w-md w-full">
-                <Input
-                  placeholder="Search documents..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="bg-black/30 border-white/10"
-                />
-              </div>
-              
-              <Tabs defaultValue="all" className="w-full sm:w-auto">
-                <TabsList className="grid grid-cols-3 w-full sm:w-auto">
-                  <TabsTrigger value="all">All</TabsTrigger>
-                  <TabsTrigger value="images">Images</TabsTrigger>
-                  <TabsTrigger value="documents">Documents</TabsTrigger>
-                </TabsList>
-              </Tabs>
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+            <div className="relative w-full sm:w-64">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <Input
+                type="text"
+                placeholder="Search documents..."
+                className="pl-10"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </div>
+            <Button>
+              <Plus className="mr-2 h-4 w-4" />
+              Upload New
+            </Button>
+          </div>
+          
+          <div className="glass-morphism rounded-xl overflow-hidden">
+            <div className="p-4 border-b border-white/10 grid grid-cols-12 gap-4 text-sm text-gray-400 font-medium">
+              <div className="col-span-7 sm:col-span-6">Name</div>
+              <div className="hidden sm:block col-span-3">Date</div>
+              <div className="col-span-3 sm:col-span-2">Type</div>
+              <div className="col-span-2 sm:col-span-1 text-right">Actions</div>
             </div>
             
-            {filteredItems.length === 0 ? (
-              <div className="text-center py-20">
-                <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-primary/10 mb-5">
-                  <FileText className="h-10 w-10 text-primary" />
-                </div>
-                <h3 className="text-xl font-medium mb-2">No documents found</h3>
-                <p className="text-gray-400 max-w-md mx-auto">
-                  {searchTerm 
-                    ? `No documents matching "${searchTerm}" were found.` 
-                    : "You haven't processed any documents yet."}
-                </p>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredItems.map(item => (
-                  <div key={item.id} className="bg-black/40 rounded-lg overflow-hidden border border-white/5 hover:border-white/10 transition-colors group">
-                    {item.type === 'image' ? (
-                      <div className="h-40 bg-black/30 flex items-center justify-center">
-                        <FileImage className="h-12 w-12 text-gray-400" />
+            <div className="divide-y divide-white/5">
+              {filteredDocuments.length > 0 ? (
+                filteredDocuments.map(doc => (
+                  <div key={doc.id} className="p-4 grid grid-cols-12 gap-4 items-center hover:bg-white/5 transition-colors">
+                    <div className="col-span-7 sm:col-span-6 flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <FileText className="h-4 w-4 text-primary" />
                       </div>
-                    ) : (
-                      <div className="h-40 bg-black/30 flex items-center justify-center">
-                        <FileText className="h-12 w-12 text-gray-400" />
-                      </div>
-                    )}
-                    
-                    <div className="p-4">
-                      <h3 className="font-medium text-sm mb-1 truncate">{item.name}</h3>
-                      <p className="text-xs text-gray-400">{item.date}</p>
-                      
-                      <div className="flex justify-between mt-4">
-                        <Button variant="outline" size="sm" className="text-xs">
-                          <Download className="h-3 w-3 mr-1" /> Download
-                        </Button>
-                        <Button variant="outline" size="sm" className="text-xs text-red-400 hover:text-red-300">
-                          <Trash2 className="h-3 w-3" />
-                        </Button>
-                      </div>
+                      <span className="truncate">{doc.name}</span>
+                    </div>
+                    <div className="hidden sm:block col-span-3 text-gray-400">{doc.date}</div>
+                    <div className="col-span-3 sm:col-span-2 text-gray-400">{doc.type}</div>
+                    <div className="col-span-2 sm:col-span-1 flex justify-end gap-2">
+                      <button className="p-1.5 rounded-lg hover:bg-white/10 transition-colors">
+                        <Download className="h-4 w-4 text-gray-400" />
+                      </button>
+                      <button className="p-1.5 rounded-lg hover:bg-white/10 transition-colors">
+                        <Trash className="h-4 w-4 text-gray-400" />
+                      </button>
                     </div>
                   </div>
-                ))}
-              </div>
-            )}
+                ))
+              ) : (
+                <div className="p-8 text-center">
+                  <div className="w-12 h-12 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                    <FileText className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="text-lg font-medium mb-2">No documents found</h3>
+                  <p className="text-gray-400 mb-4">
+                    {searchQuery ? 'Try a different search term' : 'Upload your first document to get started'}
+                  </p>
+                  {!searchQuery && (
+                    <Button>
+                      <Plus className="mr-2 h-4 w-4" />
+                      Upload Document
+                    </Button>
+                  )}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </main>

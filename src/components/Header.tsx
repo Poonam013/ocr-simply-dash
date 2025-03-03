@@ -26,9 +26,10 @@ const Header = () => {
       <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4 glass-morphism">
         <div className="container mx-auto flex items-center justify-between">
           <div className="flex items-center">
-            <a href="/" className="text-xl font-semibold tracking-tight">
-              BilingualOCR
-            </a>
+            <Link to="/" className="flex items-center gap-2">
+              <img src="/lovable-uploads/cbd4b431-2baf-4a81-9bb2-c35448bd571a.png" alt="BilingualOCR Logo" className="w-8 h-8" />
+              <span className="text-xl font-semibold tracking-tight">BilingualOCR</span>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -36,27 +37,18 @@ const Header = () => {
             <a href="#features" className="text-sm font-medium hover:text-primary transition-colors">
               Features
             </a>
-            <a href="#documents" className="text-sm font-medium hover:text-primary transition-colors">
+            <Link to="/documents" className="text-sm font-medium hover:text-primary transition-colors">
               Documents
-            </a>
-            <div className="relative group">
-              <button className="flex items-center text-sm font-medium hover:text-primary transition-colors">
-                Languages <ChevronDown className="ml-1 h-4 w-4" />
-              </button>
-              <div className="absolute right-0 mt-2 w-48 glass-morphism rounded-md shadow-lg py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right">
-                <a href="#" className="block px-4 py-2 text-sm hover:bg-primary/10 transition-colors">English</a>
-                <a href="#" className="block px-4 py-2 text-sm hover:bg-primary/10 transition-colors">ગુજરાતી (Gujarati)</a>
-              </div>
-            </div>
+            </Link>
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
             <ThemeToggle />
-            <Button variant="ghost" asChild>
-              <Link to="/auth">Log in</Link>
+            <Button variant="ghost" onClick={openLogin}>
+              Log in
             </Button>
-            <Button asChild>
-              <Link to="/auth">Get Started</Link>
+            <Button onClick={openRegister}>
+              Sign Up
             </Button>
           </div>
 
@@ -80,24 +72,15 @@ const Header = () => {
               <a href="#features" className="text-sm font-medium py-2 hover:text-primary transition-colors">
                 Features
               </a>
-              <a href="#documents" className="text-sm font-medium py-2 hover:text-primary transition-colors">
+              <Link to="/documents" className="text-sm font-medium py-2 hover:text-primary transition-colors">
                 Documents
-              </a>
-              <details className="group">
-                <summary className="flex justify-between items-center text-sm font-medium py-2 cursor-pointer hover:text-primary transition-colors">
-                  Languages <ChevronDown className="h-4 w-4 group-open:rotate-180 transition-transform" />
-                </summary>
-                <div className="pl-4 space-y-2 mt-2">
-                  <a href="#" className="block py-2 text-sm hover:text-primary transition-colors">English</a>
-                  <a href="#" className="block py-2 text-sm hover:text-primary transition-colors">ગુજરાતી (Gujarati)</a>
-                </div>
-              </details>
+              </Link>
               <div className="flex flex-col space-y-3 pt-4">
-                <Button variant="ghost" asChild>
-                  <Link to="/auth">Log in</Link>
+                <Button variant="ghost" onClick={openLogin}>
+                  Log in
                 </Button>
-                <Button asChild>
-                  <Link to="/auth">Get Started</Link>
+                <Button onClick={openRegister}>
+                  Sign Up
                 </Button>
               </div>
             </div>
