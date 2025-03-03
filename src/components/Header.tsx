@@ -2,8 +2,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Menu, X, File } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import AuthModal from './AuthModal';
+import { ThemeToggle } from './ThemeToggle';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -50,6 +51,7 @@ const Header = () => {
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
+            <ThemeToggle />
             <Button variant="ghost" asChild>
               <Link to="/auth">Log in</Link>
             </Button>
@@ -59,13 +61,16 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            type="button"
-            className="md:hidden text-gray-700"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          <div className="md:hidden flex items-center space-x-4">
+            <ThemeToggle />
+            <button
+              type="button"
+              className="text-gray-700"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
