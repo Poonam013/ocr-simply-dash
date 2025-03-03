@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://rsms.me/inter/inter.css');
 
@@ -17,7 +18,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 221 83% 53%;
+    --primary: 280 100% 60%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -26,7 +27,7 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 221 83% 53%;
+    --accent: 280 100% 60%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -34,7 +35,7 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 221 83% 53%;
+    --ring: 280 100% 60%;
 
     --radius: 0.5rem;
 
@@ -49,7 +50,7 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 223 47% 7%;
     --foreground: 210 40% 98%;
 
     --card: 222.2 84% 4.9%;
@@ -58,7 +59,7 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 217.2 91.2% 59.8%;
+    --primary: 280 100% 60%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -67,7 +68,7 @@
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 217.2 91.2% 59.8%;
+    --accent: 280 100% 60%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -88,44 +89,44 @@
   }
 
   .lavender {
-    --background: 260 30% 98%;
-    --foreground: 260 30% 10%;
+    --background: 260 50% 6%;
+    --foreground: 260 30% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 260 30% 10%;
+    --card: 260 30% 10%;
+    --card-foreground: 260 30% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 260 30% 10%;
+    --popover: 260 30% 10%;
+    --popover-foreground: 260 30% 98%;
 
-    --primary: 260 80% 60%;
-    --primary-foreground: 260 30% 98%;
+    --primary: 287 100% 68%;
+    --primary-foreground: 260 30% 10%;
 
-    --secondary: 260 30% 96%;
-    --secondary-foreground: 260 30% 10%;
+    --secondary: 260 30% 15%;
+    --secondary-foreground: 260 30% 98%;
 
-    --muted: 260 30% 96%;
-    --muted-foreground: 260 30% 40%;
+    --muted: 260 30% 15%;
+    --muted-foreground: 260 30% 70%;
 
-    --accent: 260 80% 60%;
+    --accent: 287 100% 68%;
     --accent-foreground: 260 30% 10%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 260 30% 90%;
-    --input: 260 30% 90%;
-    --ring: 260 80% 60%;
+    --border: 260 30% 20%;
+    --input: 260 30% 20%;
+    --ring: 287 100% 68%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 260 30% 96%;
-    --sidebar-foreground: 260 30% 26%;
-    --sidebar-primary: 260 80% 60%;
+    --sidebar-background: 260 50% 10%;
+    --sidebar-foreground: 260 30% 90%;
+    --sidebar-primary: 287 100% 68%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 260 30% 90%;
-    --sidebar-accent-foreground: 260 30% 10%;
-    --sidebar-border: 260 30% 85%;
-    --sidebar-ring: 260 80% 60%;
+    --sidebar-accent: 260 30% 15%;
+    --sidebar-accent-foreground: 260 30% 90%;
+    --sidebar-border: 260 30% 20%;
+    --sidebar-ring: 287 100% 68%;
   }
 }
 
@@ -156,7 +157,7 @@
 }
 
 .lavender .glass-morphism {
-  @apply bg-white/70 backdrop-blur-md border border-white/40 shadow-lg;
+  @apply bg-black/50 backdrop-blur-md border border-white/20 shadow-lg;
 }
 
 .minimal-scrollbar {
@@ -184,14 +185,14 @@
 
 .floating-blur {
   position: absolute;
-  filter: blur(60px);
+  filter: blur(80px);
   border-radius: 50%;
-  opacity: 0.6;
-  animation: float 8s ease-in-out infinite alternate;
+  opacity: 0.5;
+  animation: float 10s ease-in-out infinite alternate;
 }
 
 .floating-blur-1 {
-  background: linear-gradient(135deg, #4F46E5 0%, #5D5FEF 100%);
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, #6b46ef 100%);
   width: 450px;
   height: 450px;
   top: -100px;
@@ -200,7 +201,7 @@
 }
 
 .floating-blur-2 {
-  background: linear-gradient(225deg, #7F7FD5 0%, #91EAE4 100%);
+  background: linear-gradient(225deg, #6a11cb 0%, #2575fc 100%);
   width: 400px;
   height: 400px;
   bottom: -100px;
@@ -209,7 +210,7 @@
 }
 
 .floating-blur-3 {
-  background: linear-gradient(90deg, #9F7AEA 0%, #FEB2B2 100%);
+  background: linear-gradient(90deg, hsl(var(--primary)) 0%, #8B5CF6 100%);
   width: 320px;
   height: 320px;
   bottom: 150px;
@@ -230,5 +231,5 @@
 }
 
 .text-gradient {
-  @apply bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-primary via-purple-500 to-fuchsia-400 bg-clip-text text-transparent;
 }

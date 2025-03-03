@@ -5,6 +5,8 @@ import Hero from '@/components/Hero';
 import UploadArea from '@/components/UploadArea';
 import PreviewWindow from '@/components/PreviewWindow';
 import Footer from '@/components/Footer';
+import HowToSection from '@/components/HowToSection';
+import FeaturesSection from '@/components/FeaturesSection';
 
 const Index = () => {
   // Add scroll animation for sections
@@ -46,33 +48,43 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background">
+      {/* Background blur effects */}
+      <div className="fixed inset-0 overflow-hidden -z-10 pointer-events-none">
+        <div className="floating-blur floating-blur-1"></div>
+        <div className="floating-blur floating-blur-2"></div>
+        <div className="floating-blur floating-blur-3"></div>
+      </div>
+      
       <Header />
       
       <main className="flex-grow">
-        {/* Hero Section */}
+        {/* Hero Section with centered text */}
         <Hero />
         
         {/* Upload Area Section */}
         <section 
           id="try-it-out" 
-          className="py-24 px-6 bg-gradient-to-b from-background to-[#111827]/50"
+          className="py-24 px-6 bg-gradient-to-b from-background to-background/80"
           ref={(el) => addToRefs(el, 0)}
         >
           <div className="container mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-4">
-                Try It Yourself
+                Upload your blurry images
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Upload your documents</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Unblur your photos instantly</h2>
               <p className="text-lg text-gray-400">
-                Drag and drop your files containing English or Gujarati text, or browse your device to select them.
+                Upload your blurry images and let our AI enhance them to crystal clear quality in seconds.
               </p>
             </div>
             
             <UploadArea />
           </div>
         </section>
+        
+        {/* How To Section */}
+        <HowToSection addToRefs={addToRefs} />
         
         {/* Preview Section */}
         <section 
@@ -85,9 +97,9 @@ const Index = () => {
               <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-4">
                 Preview & Results
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">See the OCR in action</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">See the unblurring in action</h2>
               <p className="text-lg text-gray-400">
-                View, edit, and download your extracted text after processing.
+                View, edit, and download your enhanced images after processing.
               </p>
             </div>
             
@@ -96,61 +108,7 @@ const Index = () => {
         </section>
         
         {/* Features Section */}
-        <section 
-          id="features" 
-          className="py-24 px-6 bg-gradient-to-b from-[#111827]/50 to-background"
-          ref={(el) => addToRefs(el, 2)}
-        >
-          <div className="container mx-auto">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-4">
-                Powerful Features
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Transform images into editable text</h2>
-              <p className="text-lg text-gray-400">
-                Our OCR technology makes it easy to extract and edit text from any image, 
-                with special optimization for both English and Gujarati languages.
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                {
-                  title: "Bilingual Support",
-                  description: "Accurately recognizes and extracts both English and Gujarati text from your documents."
-                },
-                {
-                  title: "High Accuracy",
-                  description: "Our advanced algorithms ensure precise text extraction with up to 99.8% accuracy."
-                },
-                {
-                  title: "Batch Processing",
-                  description: "Upload and process multiple files at once to save time and increase productivity."
-                },
-                {
-                  title: "Format Preservation",
-                  description: "Maintains the original formatting of your text, including paragraphs and layouts."
-                },
-                {
-                  title: "Edit & Download",
-                  description: "Edit extracted text directly in the browser and download in various formats."
-                },
-                {
-                  title: "Cloud Storage",
-                  description: "Securely store your documents and OCR results in the cloud for easy access."
-                }
-              ].map((feature, index) => (
-                <div key={index} className="bg-secondary/30 rounded-xl p-6 shadow-sm border border-white/5 hover:bg-secondary/50 transition-colors">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                    <span className="text-primary font-semibold">{index + 1}</span>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                  <p className="text-gray-400">{feature.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <FeaturesSection addToRefs={addToRefs} />
       </main>
       
       <Footer />

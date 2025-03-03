@@ -1,7 +1,7 @@
 
 import { useState, useRef, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
-import { Upload, Plus, FileText, X, Check } from 'lucide-react';
+import { Upload, Plus, FileText, X, Check, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Progress } from '@/components/ui/progress';
 
@@ -108,8 +108,8 @@ const UploadArea = () => {
       <div 
         className={cn(
           "border-2 border-dashed rounded-xl p-8 transition-all duration-200 ease-in-out",
-          isDragging ? "border-primary drag-drop-highlight scale-[1.01]" : "border-gray-200",
-          "animate-fade-in"
+          isDragging ? "border-primary drag-drop-highlight scale-[1.01]" : "border-white/10",
+          "animate-fade-in bg-background/40 backdrop-blur-sm"
         )}
         onDragEnter={handleDragEnter}
         onDragLeave={handleDragLeave}
@@ -121,18 +121,21 @@ const UploadArea = () => {
             <Upload className="h-8 w-8 text-primary" />
           </div>
           <h3 className="text-lg font-medium mb-2">Drag & drop files here</h3>
-          <p className="text-sm text-gray-500 mb-6 max-w-md">
-            Support for images (PNG, JPG) and documents (PDF) containing English or Gujarati text
+          <p className="text-sm text-gray-400 mb-6 max-w-md">
+            Support for images (PNG, JPG) with blur that needs enhancement
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Button onClick={triggerFileInput}>
               <Plus className="mr-2 h-4 w-4" /> Select Files
             </Button>
+            <Button variant="outline" onClick={triggerFileInput}>
+              <Sparkles className="mr-2 h-4 w-4" /> AI Enhance
+            </Button>
             <input
               ref={fileInputRef}
               type="file"
               multiple
-              accept=".pdf,.png,.jpg,.jpeg"
+              accept=".png,.jpg,.jpeg"
               className="hidden"
               onChange={handleFileInputChange}
             />
@@ -142,10 +145,10 @@ const UploadArea = () => {
 
       {files.length > 0 && (
         <div className="mt-8 glass-morphism rounded-xl p-4 animate-scale-in">
-          <h3 className="text-lg font-medium mb-4">Uploaded Files</h3>
+          <h3 className="text-lg font-medium mb-4">Uploaded Images</h3>
           <div className="space-y-3 max-h-72 overflow-y-auto minimal-scrollbar pr-2">
             {files.map((fileObj) => (
-              <div key={fileObj.id} className="flex items-center p-3 bg-white rounded-lg shadow-sm border">
+              <div key={fileObj.id} className="flex items-center p-3 bg-black/30 rounded-lg shadow-sm border border-white/5">
                 <div className="p-2 bg-primary/10 rounded-md mr-3">
                   <FileText className="h-5 w-5 text-primary" />
                 </div>
@@ -153,22 +156,22 @@ const UploadArea = () => {
                   <p className="text-sm font-medium truncate">{fileObj.file.name}</p>
                   <div className="flex items-center mt-1">
                     <Progress value={fileObj.progress} className="h-1.5 flex-1 mr-2" />
-                    <span className="text-xs text-gray-500 w-10 text-right">
+                    <span className="text-xs text-gray-400 w-10 text-right">
                       {Math.round(fileObj.progress)}%
                     </span>
                   </div>
                 </div>
                 <div className="ml-4 flex items-center">
                   {fileObj.status === 'complete' ? (
-                    <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-                      <Check className="h-3 w-3 text-green-600" />
+                    <div className="w-6 h-6 bg-green-900/30 rounded-full flex items-center justify-center">
+                      <Check className="h-3 w-3 text-green-500" />
                     </div>
                   ) : (
                     <button 
                       onClick={() => handleRemoveFile(fileObj.id)}
-                      className="p-1 hover:bg-gray-100 rounded-full transition-colors"
+                      className="p-1 hover:bg-white/10 rounded-full transition-colors"
                     >
-                      <X className="h-4 w-4 text-gray-500" />
+                      <X className="h-4 w-4 text-gray-400" />
                     </button>
                   )}
                 </div>
