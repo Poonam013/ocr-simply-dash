@@ -14,10 +14,21 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<ThemeType>('dark');
 
   useEffect(() => {
+    // Check for saved theme in localStorage
+    const savedTheme = localStorage.getItem('theme') as ThemeType | null;
+    if (savedTheme && ['dark', 'light', 'lavender'].includes(savedTheme)) {
+      setTheme(savedTheme);
+    }
+  }, []);
+
+  useEffect(() => {
     // Apply theme class to document
     const root = window.document.documentElement;
     root.classList.remove('dark', 'light', 'lavender');
     root.classList.add(theme);
+    
+    // Save theme preference
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
   return (

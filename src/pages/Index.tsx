@@ -59,29 +59,8 @@ const Index = () => {
       <Header />
       
       <main className="flex-grow">
-        {/* Hero Section with centered text */}
+        {/* Hero Section with Upload */}
         <Hero />
-        
-        {/* Upload Area Section */}
-        <section 
-          id="upload" 
-          className="py-24 px-6 bg-gradient-to-b from-background to-background/80"
-          ref={(el) => addToRefs(el, 0)}
-        >
-          <div className="container mx-auto">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-4">
-                Upload your documents
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Extract text from any document</h2>
-              <p className="text-lg text-gray-400">
-                Upload your images or documents and let our OCR technology extract the text in seconds.
-              </p>
-            </div>
-            
-            <UploadArea />
-          </div>
-        </section>
         
         {/* Preview Section */}
         <section 
