@@ -62,7 +62,7 @@ const Index = () => {
         {/* Hero Section with Upload */}
         <Hero />
         
-        {/* Preview Section */}
+        {/* Upload and Preview Section Side by Side */}
         <section 
           id="ocr-in-action" 
           className="py-24 px-6 bg-black/40"
@@ -79,7 +79,18 @@ const Index = () => {
               </p>
             </div>
             
-            <PreviewWindow />
+            {/* Grid layout for side-by-side components */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Upload Area - Left Side */}
+              <div className="flex items-center justify-center">
+                <UploadArea />
+              </div>
+              
+              {/* Preview Window - Right Side */}
+              <div className="flex items-center justify-center">
+                <PreviewWindow />
+              </div>
+            </div>
           </div>
         </section>
 
