@@ -59,12 +59,13 @@ const Index = () => {
       <Header />
       
       <main className="flex-grow">
+        {/* Hero Section with Upload */}
         <Hero />
         
-        {/* Two Column Layout for Upload and Preview */}
+        {/* Upload and Preview Section Side by Side */}
         <section 
           id="ocr-in-action" 
-          className="py-24 px-6"
+          className="py-24 px-6 bg-black/40"
           ref={(el) => addToRefs(el, 1)}
         >
           <div className="container mx-auto">
@@ -78,18 +79,25 @@ const Index = () => {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-black/40 rounded-xl p-6">
+            {/* Grid layout for side-by-side components */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Upload Area - Left Side */}
+              <div className="flex items-center justify-center">
                 <UploadArea />
               </div>
-              <div>
+              
+              {/* Preview Window - Right Side */}
+              <div className="flex items-center justify-center">
                 <PreviewWindow />
               </div>
             </div>
           </div>
         </section>
 
+        {/* How To Section */}
         <HowToSection addToRefs={addToRefs} />
+        
+        {/* Features Section */}
         <FeaturesSection addToRefs={addToRefs} />
       </main>
       
