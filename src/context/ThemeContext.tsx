@@ -1,7 +1,7 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-type ThemeType = 'dark' | 'light' | 'lavender';
+type ThemeType = 'dark' | 'light';
 
 interface ThemeContextType {
   theme: ThemeType;
@@ -16,7 +16,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // Check for saved theme in localStorage
     const savedTheme = localStorage.getItem('theme') as ThemeType | null;
-    if (savedTheme && ['dark', 'light', 'lavender'].includes(savedTheme)) {
+    if (savedTheme && ['dark', 'light'].includes(savedTheme)) {
       setTheme(savedTheme);
     }
   }, []);
@@ -24,7 +24,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // Apply theme class to document
     const root = window.document.documentElement;
-    root.classList.remove('dark', 'light', 'lavender');
+    root.classList.remove('dark', 'light');
     root.classList.add(theme);
     
     // Save theme preference
