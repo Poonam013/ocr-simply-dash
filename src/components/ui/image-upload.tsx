@@ -97,7 +97,7 @@ export function ImageUpload({
   return <div className={cn("space-y-4", className)}>
       {/* Drop zone */}
       <div onDragEnter={handleDragEnter} onDragLeave={handleDragLeave} onDragOver={handleDragOver} onDrop={handleDrop} className="rounded-sm">
-        <div className="flex flex-col items-center justify-center text-center rounded-xl">
+        <div className="flex flex-col items-center justify-center text-center rounded-full mx-0 my-0 px-2\n">
           <div className="w-16 h-16 mb-4 rounded-full bg-primary/10 flex items-center justify-center">
             <ImageIcon className="h-8 w-8 text-primary" />
           </div>
