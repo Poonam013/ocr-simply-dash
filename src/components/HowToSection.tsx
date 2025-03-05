@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { motion } from 'framer-motion';
 
 type HowToSectionProps = {
   addToRefs: (el: HTMLElement | null, index: number) => void;
@@ -24,13 +25,28 @@ const HowToSection: React.FC<HowToSectionProps> = ({ addToRefs }) => {
         </div>
         
         <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div className="rounded-xl overflow-hidden border-2 border-primary/20 p-2 transition-transform duration-300 hover:scale-105">
-            <img 
+          <motion.div 
+            className="rounded-xl overflow-hidden border-2 border-primary/20 p-2 aspect-square"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ 
+              duration: 0.5, 
+              ease: "easeOut"
+            }}
+            whileHover={{ 
+              scale: 1.03,
+              boxShadow: "0 0 25px rgba(0, 0, 0, 0.2)"
+            }}
+          >
+            <motion.img 
               src="/lovable-uploads/82b29139-f988-4210-abd5-bedf1ede28d8.png" 
               alt="Text extraction steps" 
-              className="w-full h-auto rounded-lg"
+              className="w-full h-full object-cover rounded-lg"
+              initial={{ rotate: -2 }}
+              whileHover={{ rotate: 0 }}
+              transition={{ duration: 0.3 }}
             />
-          </div>
+          </motion.div>
           
           <div className="space-y-10">
             {[
@@ -54,16 +70,26 @@ const HowToSection: React.FC<HowToSectionProps> = ({ addToRefs }) => {
                 title: "Download",
                 description: "Save the extracted text as a document or copy to clipboard."
               }
-            ].map((step) => (
-              <div key={step.number} className="flex gap-6 transition-transform duration-300 hover:scale-105 hover:bg-primary/5 p-4 rounded-lg">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-xl font-bold text-primary">
+            ].map((step, index) => (
+              <motion.div 
+                key={step.number} 
+                className="flex gap-6 p-4 rounded-lg"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                whileHover={{ 
+                  scale: 1.03, 
+                  backgroundColor: "rgba(var(--primary), 0.05)"
+                }}
+              >
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-xl font-semibold text-primary">
                   {step.number}
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
                   <p className="text-gray-400">{step.description}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
