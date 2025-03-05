@@ -2,11 +2,12 @@
 import { useEffect, useRef } from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
-import UploadArea from '@/components/UploadArea';
 import PreviewWindow from '@/components/PreviewWindow';
 import Footer from '@/components/Footer';
 import HowToSection from '@/components/HowToSection';
 import FeaturesSection from '@/components/FeaturesSection';
+import { BackgroundPaths } from '@/components/ui/background-paths';
+import { ImageUpload } from '@/components/ui/use-image-upload';
 
 const Index = () => {
   // Add scroll animation for sections
@@ -49,12 +50,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      {/* Background blur effects */}
-      <div className="fixed inset-0 overflow-hidden -z-10 pointer-events-none">
-        <div className="floating-blur floating-blur-1"></div>
-        <div className="floating-blur floating-blur-2"></div>
-        <div className="floating-blur floating-blur-3"></div>
-      </div>
+      {/* Background */}
+      <BackgroundPaths />
       
       <Header />
       
@@ -105,7 +102,7 @@ const Index = () => {
         {/* Upload Area Section */}
         <section 
           id="upload-documents" 
-          className="py-24 px-6 bg-black/40"
+          className="py-24 px-6 bg-black/20"
           ref={(el) => addToRefs(el, 2)}
         >
           <div className="container mx-auto">
@@ -119,7 +116,9 @@ const Index = () => {
               </p>
             </div>
             
-            <UploadArea />
+            <div className="max-w-4xl mx-auto">
+              <ImageUpload />
+            </div>
           </div>
         </section>
 
