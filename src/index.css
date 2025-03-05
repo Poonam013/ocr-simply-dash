@@ -19,7 +19,6 @@
     --popover-foreground: 135 15% 20%;
 
     --primary: 41 77% 76%;
-    --primary-rgb: 242, 226, 177; /* Added RGB for background-paths */
     --primary-foreground: 135 15% 20%;
 
     --secondary: 38 59% 83%;
@@ -61,7 +60,6 @@
     --popover-foreground: 37 20% 83%;
 
     --primary: 35 38% 51%;
-    --primary-rgb: 162, 123, 92; /* Added RGB for background-paths */
     --primary-foreground: 37 20% 83%;
 
     --secondary: 142 15% 26%;
