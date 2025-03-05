@@ -60,7 +60,7 @@ const Index = () => {
             <div className="text-center max-w-3xl mx-auto mb-16">
               
               <h2 className="text-3xl md:text-4xl font-bold mb-6">See the OCR in action</h2>
-              <p className="text-lg text-gray-400">
+              <p className="text-gray-400 text-sm">
                 Our OCR technology accurately extracts text from images while preserving the original formatting.
               </p>
             </div>
