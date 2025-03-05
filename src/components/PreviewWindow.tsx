@@ -45,33 +45,11 @@ const PreviewWindow = () => {
       </div>
       
       <div className="p-6">
-        <Tabs defaultValue="side-by-side" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 mb-6">
-            <TabsTrigger value="side-by-side">Side by Side</TabsTrigger>
+        <Tabs defaultValue="original" className="w-full">
+          <TabsList className="grid w-full grid-cols-2 mb-6">
             <TabsTrigger value="original">Original</TabsTrigger>
             <TabsTrigger value="extracted">Extracted Text</TabsTrigger>
           </TabsList>
-          
-          <TabsContent value="side-by-side" className="mt-0">
-            <div className="flex flex-col md:flex-row gap-6">
-              <div className="flex-1 relative rounded-xl overflow-hidden border border-white/10 bg-black/30">
-                <div className="absolute top-2 left-2 px-2 py-1 bg-black/60 rounded text-xs">Original</div>
-                <img 
-                  src="/lovable-uploads/24f0488e-4382-413c-9bff-b91a62213a9b.png" 
-                  alt="Original document with text" 
-                  className="w-full aspect-square object-cover"
-                />
-              </div>
-              <div className="flex-1 relative rounded-xl overflow-hidden border border-white/10 bg-black/30 p-4">
-                <div className="absolute top-2 left-2 px-2 py-1 bg-primary/80 rounded text-xs">Extracted Text</div>
-                <div className="font-mono text-sm h-full overflow-y-auto">
-                  <p>Sample extracted text would appear here. This would be the text that has been extracted from the uploaded image or document using the OCR technology.</p>
-                  <p className="mt-4">The text is fully editable and can be copied, downloaded, or further processed as needed.</p>
-                  <p className="mt-4">Our OCR system can handle multiple languages and preserves the formatting of the original document as much as possible.</p>
-                </div>
-              </div>
-            </div>
-          </TabsContent>
           
           <TabsContent value="original" className="mt-0">
             <div className="rounded-xl overflow-hidden border border-white/10 bg-black/30">
