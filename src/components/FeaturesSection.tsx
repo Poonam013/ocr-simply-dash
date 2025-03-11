@@ -43,11 +43,11 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ addToRefs }) => {
     >
       <div className="container mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-4">
+          <div className="inline-block rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary mb-4">
             Powerful Features
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Transform images into editable text</h2>
-          <p className="text-lg text-gray-400">
+          <p className="text-lg text-foreground/80">
             Our OCR technology gives you powerful tools to work with text extracted from any image or document.
           </p>
         </div>
@@ -56,13 +56,13 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ addToRefs }) => {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className="glass-morphism p-6 rounded-xl transition-all duration-300 hover:scale-105 hover:bg-primary/5"
+              className="glass-morphism p-6 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg border border-primary/20 hover:border-primary/40"
             >
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+              <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-6">
                 <feature.icon className="h-6 w-6 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-              <p className="text-gray-400">{feature.description}</p>
+              <p className="text-foreground/80">{feature.description}</p>
             </div>
           ))}
         </div>

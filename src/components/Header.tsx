@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
@@ -49,7 +48,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="w-full z-40 fixed top-0 left-0 glass-morphism">
+      <header className="w-full z-40 fixed top-0 left-0 bg-background/80 backdrop-blur-md border-b border-primary/10 shadow-sm">
         <div className="container relative mx-auto min-h-20 flex gap-4 flex-row lg:grid lg:grid-cols-3 items-center">
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-2">
@@ -98,10 +97,10 @@ const Header = () => {
           
           <div className="flex justify-end w-full gap-4 items-center">
             <ThemeToggle />
-            <Button variant="outline" onClick={openLogin} className="hidden md:inline">
+            <Button variant="outline" onClick={openLogin} className="hidden md:inline border-primary/20 hover:bg-primary/10">
               Log in
             </Button>
-            <Button onClick={openRegister}>Sign Up</Button>
+            <Button onClick={openRegister} className="bg-primary hover:bg-primary/90 text-white">Sign Up</Button>
           </div>
           
           <div className="flex w-12 shrink lg:hidden items-end justify-end">

@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -25,35 +24,45 @@ const AuthModal = ({ isOpen, onClose, initialView }: AuthModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px] p-0 overflow-hidden rounded-2xl bg-[#242935] border-white/10 text-white">
+      <DialogContent className="sm:max-w-[425px] p-0 overflow-hidden rounded-2xl bg-background border-primary/20 text-foreground shadow-lg">
         <DialogHeader className="p-6 pb-0">
-          <DialogTitle className="text-2xl font-bold text-center text-white">
+          <DialogTitle className="text-2xl font-bold text-center">
             {view === 'login' ? 'Welcome back' : 'Create your account'}
           </DialogTitle>
         </DialogHeader>
         
         <Tabs value={view} onValueChange={handleViewChange} className="w-full">
           <div className="px-6 py-4">
-            <TabsList className="grid w-full grid-cols-2 bg-[#1e2330]">
-              <TabsTrigger value="login" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Login</TabsTrigger>
-              <TabsTrigger value="register" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Register</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-2 bg-secondary">
+              <TabsTrigger 
+                value="login" 
+                className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+              >
+                Login
+              </TabsTrigger>
+              <TabsTrigger 
+                value="register" 
+                className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+              >
+                Register
+              </TabsTrigger>
             </TabsList>
           </div>
           
           <TabsContent value="login" className="p-6 pt-2 space-y-6">
             <div className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-white/90">Email</Label>
+                <Label htmlFor="email" className="text-foreground/90">Email</Label>
                 <Input 
                   id="email" 
                   type="email" 
                   placeholder="Enter your email" 
-                  className="bg-[#1e2330] border-white/10 focus-visible:ring-white/20 placeholder:text-white/30"
+                  className="bg-secondary/50 border-primary/20 focus-visible:ring-primary/30 placeholder:text-foreground/40"
                 />
               </div>
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <Label htmlFor="password" className="text-white/90">Password</Label>
+                  <Label htmlFor="password" className="text-foreground/90">Password</Label>
                   <a href="#" className="text-xs text-primary hover:underline">
                     Forgot password?
                   </a>
@@ -63,12 +72,12 @@ const AuthModal = ({ isOpen, onClose, initialView }: AuthModalProps) => {
                     id="password" 
                     type={showPassword ? "text" : "password"} 
                     placeholder="Enter your password" 
-                    className="bg-[#1e2330] border-white/10 focus-visible:ring-white/20 placeholder:text-white/30"
+                    className="bg-secondary/50 border-primary/20 focus-visible:ring-primary/30 placeholder:text-foreground/40"
                   />
                   <button 
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-white/50 hover:text-white/80"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-foreground/50 hover:text-foreground/80"
                   >
                     {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </button>
@@ -83,17 +92,17 @@ const AuthModal = ({ isOpen, onClose, initialView }: AuthModalProps) => {
             
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
-                <span className="w-full border-t border-white/10" />
+                <span className="w-full border-t border-primary/10" />
               </div>
               <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-[#242935] px-2 text-white/50">
+                <span className="bg-background px-2 text-foreground/50">
                   Or continue with
                 </span>
               </div>
             </div>
             
             <div className="grid grid-cols-2 gap-4">
-              <Button variant="outline" className="bg-[#1e2330] border-white/10 hover:bg-white/10 text-white">
+              <Button variant="outline" className="bg-secondary/50 border-primary/20 hover:bg-primary/10 text-foreground">
                 <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
                   <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
                   <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
@@ -102,7 +111,7 @@ const AuthModal = ({ isOpen, onClose, initialView }: AuthModalProps) => {
                 </svg>
                 Google
               </Button>
-              <Button variant="outline" className="bg-[#1e2330] border-white/10 hover:bg-white/10 text-white">
+              <Button variant="outline" className="bg-secondary/50 border-primary/20 hover:bg-primary/10 text-foreground">
                 <svg className="mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12z" />
                 </svg>
@@ -115,44 +124,44 @@ const AuthModal = ({ isOpen, onClose, initialView }: AuthModalProps) => {
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="first-name" className="text-white/90">First name</Label>
+                  <Label htmlFor="first-name" className="text-foreground/90">First name</Label>
                   <Input 
                     id="first-name" 
                     placeholder="John" 
-                    className="bg-[#1e2330] border-white/10 focus-visible:ring-white/20 placeholder:text-white/30"
+                    className="bg-secondary/50 border-primary/20 focus-visible:ring-primary/30 placeholder:text-foreground/40"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="last-name" className="text-white/90">Last name</Label>
+                  <Label htmlFor="last-name" className="text-foreground/90">Last name</Label>
                   <Input 
                     id="last-name" 
                     placeholder="Doe" 
-                    className="bg-[#1e2330] border-white/10 focus-visible:ring-white/20 placeholder:text-white/30"
+                    className="bg-secondary/50 border-primary/20 focus-visible:ring-primary/30 placeholder:text-foreground/40"
                   />
                 </div>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="email-register" className="text-white/90">Email</Label>
+                <Label htmlFor="email-register" className="text-foreground/90">Email</Label>
                 <Input 
                   id="email-register" 
                   type="email" 
                   placeholder="john.doe@example.com" 
-                  className="bg-[#1e2330] border-white/10 focus-visible:ring-white/20 placeholder:text-white/30"
+                  className="bg-secondary/50 border-primary/20 focus-visible:ring-primary/30 placeholder:text-foreground/40"
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="password-register" className="text-white/90">Password</Label>
+                <Label htmlFor="password-register" className="text-foreground/90">Password</Label>
                 <div className="relative">
                   <Input 
                     id="password-register" 
                     type={showPassword ? "text" : "password"} 
                     placeholder="Create a password" 
-                    className="bg-[#1e2330] border-white/10 focus-visible:ring-white/20 placeholder:text-white/30"
+                    className="bg-secondary/50 border-primary/20 focus-visible:ring-primary/30 placeholder:text-foreground/40"
                   />
                   <button 
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-white/50 hover:text-white/80"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-foreground/50 hover:text-foreground/80"
                   >
                     {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </button>
@@ -166,7 +175,7 @@ const AuthModal = ({ isOpen, onClose, initialView }: AuthModalProps) => {
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
               
-              <p className="text-xs text-center text-white/60">
+              <p className="text-xs text-center text-foreground/60">
                 By creating an account, you agree to our{" "}
                 <a href="#" className="text-primary hover:underline">Terms of Service</a>
                 {" "}and{" "}

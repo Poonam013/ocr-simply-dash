@@ -10,23 +10,23 @@ const HowToSection: React.FC<HowToSectionProps> = ({ addToRefs }) => {
   return (
     <section 
       id="how-it-works" 
-      className="py-24 px-6 bg-black/40"
+      className="py-24 px-6 bg-secondary/50 backdrop-blur-sm"
       ref={(el) => addToRefs(el, 3)}
     >
       <div className="container mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-4">
+          <div className="inline-block rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary mb-4">
             Simple Process
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">How to extract text from images</h2>
-          <p className="text-lg text-gray-400">
+          <p className="text-lg text-foreground/80">
             Our AI-powered OCR tool makes it easy to extract text from images and documents in just a few simple steps.
           </p>
         </div>
         
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <motion.div 
-            className="rounded-xl overflow-hidden border-2 border-primary/20 p-2 aspect-square"
+            className="rounded-xl overflow-hidden border-2 border-primary/30 p-2 aspect-square shadow-lg bg-background/50"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ 
@@ -35,7 +35,7 @@ const HowToSection: React.FC<HowToSectionProps> = ({ addToRefs }) => {
             }}
             whileHover={{ 
               scale: 1.03,
-              boxShadow: "0 0 25px rgba(0, 0, 0, 0.2)"
+              boxShadow: "0 0 25px rgba(var(--primary), 0.3)"
             }}
           >
             <motion.img 
@@ -79,15 +79,15 @@ const HowToSection: React.FC<HowToSectionProps> = ({ addToRefs }) => {
                 transition={{ duration: 0.3, delay: index * 0.1 }}
                 whileHover={{ 
                   scale: 1.03, 
-                  backgroundColor: "rgba(var(--primary), 0.05)"
+                  backgroundColor: "rgba(var(--primary), 0.1)"
                 }}
               >
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-xl font-semibold text-primary">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-xl font-semibold text-primary">
                   {step.number}
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                  <p className="text-gray-400">{step.description}</p>
+                  <p className="text-foreground/80">{step.description}</p>
                 </div>
               </motion.div>
             ))}
